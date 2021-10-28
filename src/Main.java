@@ -27,10 +27,8 @@ public class Main {
 
         //The game mode//
         while (wrongGuessCount < 6 && !statusInGame.equals(wordToGuess)){
-
             //Get a letter guess from Player
             System.out.println("Word: " + statusInGame);
-
             String inputLetter = hangmanGame.getGuessFromPlayer();
 
             //Check if players guess (letter) is in the word
@@ -48,18 +46,8 @@ public class Main {
         }
 
         //Did player win or loose
-        hangmanGame.getWinOrLose(wrongGuessCount,wordToGuess,statusInGame);
-
-
-
-
-
-
+        hangmanGame.showWinOrLose(wrongGuessCount,wordToGuess,statusInGame);
 
     }
-
-
-
-
 
 }

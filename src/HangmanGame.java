@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class HangmanGame {
     static Scanner scanner = new Scanner(System.in);
-    static ArrayList<Character> lettersPlayerHasGuessed = new ArrayList<Character>();
+    private ArrayList<Character> lettersPlayerHasGuessed = new ArrayList<Character>();
 
     //Methods
     public void printHeadlineOfTheGame (){
@@ -28,10 +28,8 @@ public class HangmanGame {
 
     public String getWordInUnderscoresStatus(String wordToGuess){
         String status = "";
-
         for (int i = 0; i < wordToGuess.length(); i++) {
             status = status + "_" ;
-
         }
         return status;
     }
@@ -42,16 +40,18 @@ public class HangmanGame {
 
     public String getNewUpdatedStatusInUnderscores (String wordToGuess, String inputLetter, String statusInGame){
         StringBuilder newStatus = new StringBuilder(statusInGame);
+
         for (int i = 0; i < wordToGuess.length(); i++) {
             if(String.valueOf(wordToGuess.charAt(i)).equals(inputLetter)){
                 newStatus.setCharAt(i, wordToGuess.charAt(i));
             }
         }
         statusInGame = newStatus.toString();
+
          return statusInGame;
     }
 
-    public void getWinOrLose (int wrongGuessCount, String wordToGuess, String statusInGame){
+    public void showWinOrLose (int wrongGuessCount, String wordToGuess, String statusInGame){
         System.out.println("             •••               ");
         if (wrongGuessCount == 6){
             System.out.println("Sorry you died...😩\nThe word was: " + wordToGuess);
